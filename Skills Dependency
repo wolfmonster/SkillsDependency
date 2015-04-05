@@ -1,0 +1,229 @@
+#include<iostream>
+#include<stdlib.h>
+void health_energy()
+{
+    float low,up,par,tot;
+    std::cout<<"Enter Lower Bound : ";
+    std::cin>>low;
+    std::cout<<"Enter Upper Bound : ";
+    std::cin>>up;
+    std::cout<<"Enter Value of the Parameter : ";
+    std::cin>>par;
+    tot = (((up - low) * (par - 600)) / 6250) + low;
+    std::cout<<"The Value is : "<<tot<<std::endl;
+}
+void strint()
+{
+    float low,up,par,tot;
+    std::cout<<"Enter Lower Bound : ";
+    std::cin>>low;
+    std::cout<<"Enter Upper Bound : ";
+    std::cin>>up;
+    std::cout<<"Enter Value of the Parameter : ";
+    std::cin>>par;
+    tot = (((up - low) * (par - 50)) / 250) + low;
+    std::cout<<"The Value is : "<<tot<<std::endl;
+}
+void immo()
+{
+    float agi,str,dam;
+    std::cout<<"Enter Agility : ";
+    std::cin>>agi;
+    std::cout<<"Enter Strength : ";
+    std::cin>>str;
+    dam = 2.612 * ((0.31 * str) + (0.69 * agi)) - 61.6;
+    std::cout<<"Damage : "<<dam<<std::endl;
+}
+void blizzard()
+{
+    float energy,tot;
+    std::cout<<"Enter Energy : ";
+    std::cin>>energy;
+    tot = 0.0029 * (energy) - 0.409;
+    std::cout<<"Damage : "<<tot<<std::endl;
+}
+void panther()
+{
+    float health,hero,panther;
+    std::cout<<"Enter Total Health : ";
+    std::cin>>health;
+    hero = (0.41 * health);
+    panther = (0.82 * health);
+    std::cout<<"Hero Health : "<<hero<<std::endl;
+    std::cout<<"Panther Health : "<<panther<<std::endl;
+}
+void archer()
+{
+    float low,up,str,inte,tot;
+    std::cout<<"Enter Lower Bound of Talent : ";
+    std::cin>>low;
+    std::cout<<"Enter Upper Bound of Talent : ";
+    std::cin>>up;
+    std::cout<<"Enter Strength : ";
+    std::cin>>str;
+    std::cout<<"Enter Intellect : ";
+    std::cin>>inte;
+    tot = ((((up - low) * (str + inte - 100)) / 250) + low);
+    std::cout<<"Damage : "<<tot<<std::endl;
+}
+void wolf()
+{
+    float choice,par,health,str,inte,agi,wolfhp,direhp,wolfst,direst,wolfagi,direagi;
+    std::cout<<"1) Calculate Health"<<std::endl<<"2) Calculate Strength"<<std::endl<<"3) Calculate Agility"<<std::endl;
+    std::cout<<"Enter Your Choice : ";
+    std::cin>>choice;
+    if(choice==1)
+    {
+        std::cout<<"Enter Strength/Intellect (Whichever is Greater) : ";
+        std::cin>>par;
+        std::cout<<"Enter Wolf's Health : ";
+        std::cin>>health;
+        wolfhp = (6.86 * par) + 158;
+        direhp = (6.86 * par) + 158 + 165;
+        std::cout<<"Wolves Health : "<<wolfhp<<std::endl;
+        std::cout<<"Dire Wolves Health : "<<direhp<<std::endl;
+    }
+    else if (choice==2)
+    {
+        std::cout<<"Enter Strength : ";
+        std::cin>>str;
+        std::cout<<"Enter Intellect : ";
+        std::cin>>inte;
+        wolfst = ((str + inte) * 0.118) + 1.2;
+        direst = (0.118 * (str + inte)) + 1.2 + 1;
+        std::cout<<"Wolves Strength : "<<wolfst<<std::endl;
+        std::cout<<"Dire Wolves Strength : "<<direst<<std::endl;
+    }
+    else if(choice==3)
+    {
+        std::cout<<"Enter Hero's Agility : ";
+        std::cin>>agi;
+        wolfagi = 0.6 * agi;
+        direagi = 0.8 * agi;
+        std::cout<<"Wolves Agility : "<<wolfagi<<std::endl;
+        std::cout<<"Dire Wolves Agility : "<<direagi<<std::endl;
+    }
+    else
+    {
+        std::cout<<"Wrong Choice"<<std::endl;
+    }
+}
+void witch()
+{
+    float curhp,maxhp,inidam,dam;
+    std::cout<<"Enter Current Health : ";
+    std::cin>>curhp;
+    std::cout<<"Enter Maximum Health : ";
+    std::cin>>maxhp;
+    std::cout<<"Enter Initial Damage : ";
+    std::cin>>inidam;
+    dam = ((inidam) * (curhp) / (2 * maxhp));
+    std::cout<<"Final Damage : "<<dam<<std::endl;
+}
+void phantom()
+{
+    float fdam,dam,pen,def,n,cr;
+    char choice;
+    std::cout<<"Enter Initial Damage : ";
+    std::cin>>dam;
+    std::cout<<"Enter Value of Penetration : ";
+    std::cin>>pen;
+    std::cout<<"Enter Value of Defense : ";
+    std::cin>>def;
+    std::cout<<"Enter Critical Strike Rate : ";
+    std::cin>>cr;
+    std::cout<<"Do you want to calculate damage for Auto-Attack? Enter (Y/N) : ";
+    std::cin>>choice;
+    if(choice=='Y'||choice=='y'||((def-cr)>0))
+        n=1;
+    else
+        n=0.75;
+    fdam = dam * ((1 + (((pen/100) - (def/100)) * n)) * (2 + (cr/100)));
+    std::cout<<"Final Damage : "<<fdam<<std::endl;
+}
+void fairy()
+{
+    float add,aaf,spaf,spat,penf,pent,crf,crt;
+    std::cout<<"Enter Auto Attack of Fairy : ";
+    std::cin>>aaf;
+    std::cout<<"Enter Attack Speed of Fairy : ";
+    std::cin>>spaf;
+    std::cout<<"Enter Attack Speed of Target : ";
+    std::cin>>spat;
+    std::cout<<"Enter Penetration of Fairy : ";
+    std::cin>>penf;
+    std::cout<<"Enter Penetration of Target : ";
+    std::cin>>pent;
+    std::cout<<"Enter Critical Rate of Fairy : ";
+    std::cin>>crf;
+    std::cout<<"Enter Critical Rate of Target : ";
+    std::cin>>crt;
+    add = aaf * (((spaf) * (100 + crf) * (100 + penf)) / ((spat) * (100 + crt) * (100 + pent)));
+    std::cout<<"Additional Auto Attack : "<<add<<std::endl;
+}
+void dragonfly()
+{
+    float dmgu,dmg,mphero,mptar,n;
+    std::cout<<"Enter Initial Damage : ";
+    std::cin>>dmg;
+    std::cout<<"Enter Energy of Hero : ";
+    std::cin>>mphero;
+    std::cout<<"Enter Energy of Target : ";
+    std::cin>>mptar;
+    if(mptar=0)
+        n=1.66666;
+    else
+        n=(mphero/mptar);
+    if(n>1.66666)
+        n=1.66666;
+    dmgu = dmg * ((0.27 * n) + 0.05);
+    std::cout<<"Additional Damage : "<<dmgu<<std::endl;
+}
+int main()
+{
+    int choice;
+    char ch;
+    do
+    {
+        system("cls");
+        std::cout<<"1) Based on Health/Energy"<<std::endl;
+        std::cout<<"2) Based on Strength/Intellect/Agility, etc"<<std::endl;
+        std::cout<<"3) Hero Strike of Highlander/Immortal"<<std::endl;
+        std::cout<<"4) Ice Energy of Cryo/Blizzard"<<std::endl;
+        std::cout<<"5) Health Distribution in Case of Night Queen/Black Panther"<<std::endl;
+        std::cout<<"6) Damage Dealt by Archer/Amazon's Talents"<<std::endl;
+        std::cout<<"7) Calculating Stats of Wolves of Jaeger/Wolf Dancer"<<std::endl;
+        std::cout<<"8) Additional Damage Dealt by Curse of Fragility of Witch/Moira"<<std::endl;
+        std::cout<<"9) Damage under the Influence of Mask of Death of Faceless/Phantom"<<std::endl;
+        std::cout<<"10) Additional Auto Attack in Case of Unity of Fay/Fairy Queen"<<std::endl;
+        std::cout<<"11) Additional Damage by Energy Resonance of Arcane Wyrm/Dragonfly"<<std::endl;
+        std::cout<<"Enter Your Choice : ";
+        std::cin>>choice;
+        if(choice==1)
+            health_energy();
+        else if(choice==2)
+            strint();
+        else if(choice==3)
+            immo();
+        else if(choice==4)
+            blizzard();
+        else if(choice==5)
+            panther();
+        else if(choice==6)
+            archer();
+        else if(choice==7)
+            wolf();
+        else if(choice==8)
+            witch();
+        else if(choice==9)
+            phantom();
+        else if(choice==10)
+            fairy();
+        else if(choice==11)
+            dragonfly();
+        else
+            std::cout<<"Wrong Choice!!! Try Again!!!"<<std::endl;
+        std::cout<<"Do you want to check another hero? (Y/N) : ";
+        std::cin>>ch;
+    }while(ch=='Y'||ch=='y');
+}
